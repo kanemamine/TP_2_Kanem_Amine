@@ -84,7 +84,7 @@ function reviewforms($post)
             <?php };?>
 
             <button formaction="configAdress.php">Modifier</button>
-            <button formaction="final.php" >Sauvegarder</button>
+            <button formaction="db.php" >Sauvegarder</button>
 
         </form>
     </div>
