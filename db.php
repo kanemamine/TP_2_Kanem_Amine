@@ -2,7 +2,7 @@
 $server = 'localhost';
 $userName = "root";
 $pwd = "";
-$db = "tp2";
+$db = "ecom1_tp2";
 
 $conn = mysqli_connect($server, $userName, $pwd, $db);
 if ($conn) {
@@ -26,7 +26,7 @@ if ($stmt = mysqli_prepare($conn, $query)) {
         $_SESSION['street_nb' . $i],
         $_SESSION['type' . $i],
         $_SESSION['city' . $i],
-        $_SESSION['zipCode' . $i] );
+        $_SESSION['zipcode' . $i] );
 
         $result = mysqli_stmt_execute($stmt);
    }}

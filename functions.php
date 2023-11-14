@@ -66,7 +66,7 @@ function reviewforms($post)
 
                 <label for="type">Type adresse :</label>
                 <label for=""><?php echo $post['type' . $i] ?></label>
-                <?php $_SESSION['type' . $i] = $post['type' . $i]?>
+                <?php $_SESSION['type' . $i] = $post['type' . $i];?>
 
                 <br>
 
@@ -77,8 +77,8 @@ function reviewforms($post)
                 <br>
 
                 <label for="zipcode">Code postal :</label>
-                <label for=""><?php echo $post['zipCode' . $i] ?></label>
-                <?php $_SESSION['zipCode' . $i] = $post['zipCode' . $i]?>
+                <label for=""><?php echo $post['zipcode' . $i] ?></label>
+                <?php $_SESSION['zipcode' . $i] = $post['zipcode' . $i]?>
 
                 <br>
             <?php };?>

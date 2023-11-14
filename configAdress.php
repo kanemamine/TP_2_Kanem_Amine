@@ -63,24 +63,24 @@ $_SESSION['nb_form'] =$_POST['nb_adress'];} ?>
             <br>
 
             <label for="type">Type adresse :</label>
-            <select name="<?php echo "type". $i?>" maxlength="20" value="<?php echo isset($_SESSION['type' . $i]) ? $_SESSION['type' . $i] : ''; ?>">
-                <option value="livraison">Livraison</option>
-                <option value="facturation">Facturation</option>
-                <option value="autre">Autre</option>
+            <select name="<?php echo "type". $i?>" maxlength="20"> 
+                <option value="Livraison"  <?php if (isset($_SESSION['type' . $i])){ if ($_SESSION['type' . $i] == "Livraison"){echo "selected";} }; ?>>Livraison </option>
+                <option value="Facturation" <?php if (isset($_SESSION['type' . $i])){ if ($_SESSION['type' . $i] == "Facturation"){echo "selected";} }; ?>>Facturation</option>
+                <option value="Autre" <?php if (isset($_SESSION['type' . $i])){ if ($_SESSION['type' . $i] == "Autre"){echo "selected";}};?>>Autre</option>
             </select>
             <br>
 
             <label for="city">Ville :</label>
-            <select name="<?php echo "city". $i?>" value="<?php echo isset($_SESSION['city' . $i]) ? $_SESSION['city' . $i] : ''; ?>">
-                <option value="Montreal">Montréal</option>
-                <option value="Laval">Laval</option>
-                <option value="Toronto">Toronto</option>
-                <option value="Quebec">Québec</option>
+            <select name="<?php echo "city". $i?>" >
+                <option value="Montreal" <?php if (isset($_SESSION['city' . $i])){ if ($_SESSION['city' . $i] == "Montreal"){echo "selected";}};?>>Montreal</option>
+                <option value="Laval" <?php if (isset($_SESSION['city' . $i])){ if ($_SESSION['city' . $i] == "Laval"){echo "selected";}};?>>Laval</option>
+                <option value="Toronto" <?php if (isset($_SESSION['city' . $i])){ if ($_SESSION['city' . $i] == "Toronto"){echo "selected";}};?>>Toronto</option>
+                <option value="Quebec" <?php if (isset($_SESSION['city' . $i])){ if ($_SESSION['city' . $i] == "Quebec"){echo "selected";}};?>>Quebec</option>
             </select>
             <br>
 
             <label for="zipcode">Code postal :</label>
-            <input type="text" name="<?php echo "zipCode". $i?>" value="<?php echo isset($_SESSION['zipCode' . $i]) ? $_SESSION['zipCode' . $i] : ''; ?>">
+            <input type="text" name="<?php echo "zipcode". $i?>" value="<?php echo isset($_SESSION['zipcode' . $i]) ? $_SESSION['zipcode' . $i] : ''; ?>">
             <br> 
         <?php }; ?>
         <input type="submit" value="Soumettre">
