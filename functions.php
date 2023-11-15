@@ -49,7 +49,7 @@ function reviewforms($post)
             background-color: #45a049;
         }
     </style>
-    <?php session_start(); ?>
+
     <div class="container">
         <form>
             <?php for ($i = 1; $i <= $_SESSION['nb_form']; $i++) { ?>
@@ -89,5 +89,5 @@ function reviewforms($post)
         </form>
     </div>
 
-<?php };
+<?php ; };
 ?>

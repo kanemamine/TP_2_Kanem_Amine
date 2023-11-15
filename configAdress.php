@@ -43,13 +43,25 @@
     input[type="submit"]:hover {
         background-color: #45a049;
     }
+
+    #erreur{
+        font-size: 15px;
+        color: red;
+    }
 </style>
 
 <?php
 session_start();
 if (!isset ($_SESSION['nb_form'])){
-$_SESSION['nb_form'] =$_POST['nb_adress'];} ?>
- 
+$_SESSION['nb_form'] =$_POST['nb_adress'];} 
+
+if ($_POST){
+    if (empty($_POST['nb_adress']) || !is_numeric($_POST['nb_adress'])) {
+        $_SESSION['erreur_msg'] = "Le nombre d'adresses doit être un nombre entier.";
+        header("Location: index.php");
+    }}
+?>
+
 <div class="form-container">
     <form action="result.php" method="post" name="adress">
         <?php for ($i = 1; $i <= $_SESSION['nb_form']; $i++) { ?>
@@ -82,6 +94,8 @@ $_SESSION['nb_form'] =$_POST['nb_adress'];} ?>
             <label for="zipcode">Code postal :</label>
             <input type="text" name="<?php echo "zipcode". $i?>" value="<?php echo isset($_SESSION['zipcode' . $i]) ? $_SESSION['zipcode' . $i] : ''; ?>">
             <br> 
+            <label id="erreur"><?php if(isset($_SESSION['address_erreur_msg'])) echo $_SESSION['address_erreur_msg']; ?></label>
+
         <?php }; ?>
         <input type="submit" value="Soumettre">
     </form>

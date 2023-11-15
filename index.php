@@ -36,14 +36,21 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+#erreur{
+    font-size: 15px;
+    color: red;
+}
 </style>
 <?php
 session_start();
 
-session_destroy();
- ?>
+
+
+session_destroy();?>
 <form method ="post" action="configAdress.php">
 <label for="nb_adress">Nombre d'adresse</label>
-    <input name="nb_adress" type="text" required>
+    <input name="nb_adress" type="text" >
+    <label id="erreur"><?php if(isset($_SESSION['erreur_msg'])) echo $_SESSION['erreur_msg']; ?></label>
     <button type="submit" >Crée</button>
 </form>
