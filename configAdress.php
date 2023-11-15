@@ -94,7 +94,7 @@ if ($_POST){
             <label for="zipcode">Code postal :</label>
             <input type="text" name="<?php echo "zipcode". $i?>" value="<?php echo isset($_SESSION['zipcode' . $i]) ? $_SESSION['zipcode' . $i] : ''; ?>">
             <br> 
-            <label id="erreur"><?php if(isset($_SESSION['address_erreur_msg'])) echo $_SESSION['address_erreur_msg']; ?></label>
+            <label id="erreur"><?php if(isset($_SESSION['address_erreur_msg'])) echo $_SESSION['address_erreur_msg']; $_SESSION['address_erreur_msg'] = null; ?></label>
 
         <?php }; ?>
         <input type="submit" value="Soumettre">

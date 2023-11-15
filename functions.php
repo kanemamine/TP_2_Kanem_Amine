@@ -34,7 +34,6 @@ function reviewforms($post)
             margin-bottom: 16px;
         }
 
-        /* Style for buttons */
         button {
             background-color: #4caf50;
             color: white;
@@ -49,6 +48,12 @@ function reviewforms($post)
             background-color: #45a049;
         }
     </style>
+    <?php
+    for ($i = 1; $i <= $_SESSION['nb_form']; $i++) {
+    if (empty($_SESSION['street' . $i]) || empty($_SESSION['street_nb' . $i]) || empty($_SESSION['zipcode' . $i])) {
+        $_SESSION['address_erreur_msg'] = "Un ou plusieurs champs sont vide";
+        header("Location: configAdress.php");
+    }}?>
 
     <div class="container">
         <form>
