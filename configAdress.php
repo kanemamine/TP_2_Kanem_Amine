@@ -71,11 +71,15 @@ if ($_POST){
             <br>
 
             <label for="street_nb">Numéro de rue :</label>
-            <input type="number" name="<?php echo "street_nb". $i?>" value="<?php echo isset($_SESSION['street_nb' . $i]) ? $_SESSION['street_nb' . $i] : ''; ?>">
+            <input type="text" name="<?php echo "street_nb". $i?>" value="<?php echo isset($_SESSION['street_nb' . $i]) ? $_SESSION['street_nb' . $i] : ''; ?>">
+            <label id="erreur"><?php if(isset($_SESSION['street_nb_erreur_msg'])) echo $_SESSION['street_nb_erreur_msg']; $_SESSION['street_nb_erreur_msg'] = null; ?></label>
+
             <br>
 
             <label for="type">Type adresse :</label>
             <select name="<?php echo "type". $i?>" maxlength="20"> 
+            <option value=""> </option>
+
                 <option value="Livraison"  <?php if (isset($_SESSION['type' . $i])){ if ($_SESSION['type' . $i] == "Livraison"){echo "selected";} }; ?>>Livraison </option>
                 <option value="Facturation" <?php if (isset($_SESSION['type' . $i])){ if ($_SESSION['type' . $i] == "Facturation"){echo "selected";} }; ?>>Facturation</option>
                 <option value="Autre" <?php if (isset($_SESSION['type' . $i])){ if ($_SESSION['type' . $i] == "Autre"){echo "selected";}};?>>Autre</option>
@@ -84,6 +88,7 @@ if ($_POST){
 
             <label for="city">Ville :</label>
             <select name="<?php echo "city". $i?>" >
+             <option value=""> </option>
                 <option value="Montreal" <?php if (isset($_SESSION['city' . $i])){ if ($_SESSION['city' . $i] == "Montreal"){echo "selected";}};?>>Montreal</option>
                 <option value="Laval" <?php if (isset($_SESSION['city' . $i])){ if ($_SESSION['city' . $i] == "Laval"){echo "selected";}};?>>Laval</option>
                 <option value="Toronto" <?php if (isset($_SESSION['city' . $i])){ if ($_SESSION['city' . $i] == "Toronto"){echo "selected";}};?>>Toronto</option>
@@ -94,9 +99,11 @@ if ($_POST){
             <label for="zipcode">Code postal :</label>
             <input type="text" name="<?php echo "zipcode". $i?>" value="<?php echo isset($_SESSION['zipcode' . $i]) ? $_SESSION['zipcode' . $i] : ''; ?>">
             <br> 
-            <label id="erreur"><?php if(isset($_SESSION['address_erreur_msg'])) echo $_SESSION['address_erreur_msg']; $_SESSION['address_erreur_msg'] = null; ?></label>
+
 
         <?php }; ?>
+        <label id="erreur"><?php if(isset($_SESSION['address_erreur_msg'])) echo $_SESSION['address_erreur_msg']; $_SESSION['address_erreur_msg'] = null; ?></label>
         <input type="submit" value="Soumettre">
     </form>
+    
 </div>

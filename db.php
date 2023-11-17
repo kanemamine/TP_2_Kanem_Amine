@@ -17,7 +17,7 @@ if ($conn) {
 
 // Préparez la requête d'insertion
 for ($i = 1; $i <= $_SESSION['nb_form']; $i++) {
-$query = "INSERT INTO adresses VALUES (NULL, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO address VALUES (NULL, ?, ?, ?, ?, ?)";
 if ($stmt = mysqli_prepare($conn, $query)) {
     mysqli_stmt_bind_param(
         $stmt,

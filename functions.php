@@ -1,6 +1,7 @@
 <?php
-function reviewforms($post)
-{ ?>
+function reviewforms(){?>
+
+
     <style>
         body {
             margin: 20px;
@@ -48,42 +49,31 @@ function reviewforms($post)
             background-color: #45a049;
         }
     </style>
-    <?php
-    for ($i = 1; $i <= $_SESSION['nb_form']; $i++) {
-    if (empty($_SESSION['street' . $i]) || empty($_SESSION['street_nb' . $i]) || empty($_SESSION['zipcode' . $i])) {
-        $_SESSION['address_erreur_msg'] = "Un ou plusieurs champs sont vide";
-        header("Location: configAdress.php");
-    }}?>
 
     <div class="container">
         <form>
             <?php for ($i = 1; $i <= $_SESSION['nb_form']; $i++) { ?>
                 <h1>Adresse <?php echo $i; ?></h1>
                 <label for="street">Adresse :</label>
-                <label for=""><?php echo $post['street' . $i] ?></label>
-                <?php $_SESSION['street' . $i] = $post['street' . $i]?>
+                <label for=""><?php echo $_POST['street' . $i] ?></label>
                 <br>
 
                 <label for="street_nb">Numéro de rue :</label>
-                <label for=""><?php echo $post['street_nb' . $i] ?></label>
-                <?php $_SESSION['street_nb' . $i] = $post['street_nb' . $i]?>
+                <label for=""><?php echo $_POST['street_nb' . $i] ?></label>
                 <br>
 
                 <label for="type">Type adresse :</label>
-                <label for=""><?php echo $post['type' . $i] ?></label>
-                <?php $_SESSION['type' . $i] = $post['type' . $i];?>
+                <label for=""><?php echo $_POST['type' . $i] ?></label>
 
                 <br>
 
                 <label for="city">Ville :</label>
-                <label for=""><?php echo $post['city' . $i] ?></label>
-                <?php $_SESSION['city' . $i] = $post['city' . $i]?>
+                <label for=""><?php echo $_POST['city' . $i] ?></label>
 
                 <br>
 
                 <label for="zipcode">Code postal :</label>
-                <label for=""><?php echo $post['zipcode' . $i] ?></label>
-                <?php $_SESSION['zipcode' . $i] = $post['zipcode' . $i]?>
+                <label for=""><?php echo $_POST['zipcode' . $i] ?></label>
 
                 <br>
             <?php };?>
